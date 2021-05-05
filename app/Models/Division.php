@@ -9,4 +9,11 @@ class Division extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
+    public function teams()
+    {
+      return $this->belongsToMany(Team::class );
+    }
+
 }
