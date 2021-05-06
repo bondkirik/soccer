@@ -74,8 +74,37 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 
-.wrapper .container{
-    max-width: 1200px;
-    background-color: #FFFFFF;
-
+.wrapper {
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 1200px;
+}
+.content-d{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.content-d .division{
+    margin: 0 20px;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+.container .btn-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-block .btn{
+    padding: 10px 10px;
+    background-color: dodgerblue;
+    margin: 0 10px;
+    border-radius: 2px;
+    color: #1a202c;
 }
