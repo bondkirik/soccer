@@ -23,14 +23,25 @@
                     @foreach($division->teams as $team)
                             <tr>
                                 <td>{{ $team->name }}</td>
+
                         @for ($i = $division->teams->first()->id; $i <= $division->teams->last()->id; $i++)
                             @if($i == $team->id)
                               <td>--</td>
                                 @else
+                                @if(!$division->games->isEmpty())
+                                    @foreach($division->games->where('home_id', '==',  $team->id)->where('away_id', '==',  $i) as $game)
+                                       <td>{{$game->score}}</td>
+                                    @endforeach
+                                    @foreach($division->games->where('home_id', '==',  $i)->where('away_id', '==',  $team->id) as $game)
+                                       <td>{{$game->score}}</td>
+                                    @endforeach
+                                @else
                                 <td></td>
+                                @endif
                             @endif
+
                         @endfor
-                                <td></td>
+                                <td>{{$division->games->where('division_id', $division->id)->where('win_id', $team->id)->count()}}</td>
                             </tr>
                     @endforeach
                 </table>
@@ -38,12 +49,11 @@
             @endforeach
         </div>
         <div class="btn-block">
-            <a type="submit" class="btn btn-success" href="divisionAGen">
-                <span >division A</span>
+            @foreach ($divisions->where('id', '<=', 2) as $division)
+            <a type="submit" class="btn btn-success" href="divisionGeneration/{{$division->id}}">
+                <span >division {{$division->name}}</span>
             </a>
-            <a type="submit" class="btn btn-success" href="divisionBGen">
-                <span >division B</span>
-            </a>
+            @endforeach
             <a type="submit" class="btn btn-success" href="playoffGen">
                 <span>Playoff</span>
             </a>
@@ -52,7 +62,7 @@
 </div>
 
 
-<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
+{{--<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>--}}
 
 </body>
 </html>
