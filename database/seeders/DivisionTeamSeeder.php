@@ -30,8 +30,6 @@ class DivisionTeamSeeder extends Seeder
                     'team_id' => $team
                 ];
             }
-            $divisionTeam['created_at'] = Carbon::now();
-            $divisionTeam['updated_at'] = Carbon::now();
             DB::table('division_team')->insert($divisionTeam);
         }
 

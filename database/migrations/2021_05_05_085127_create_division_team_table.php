@@ -16,7 +16,7 @@ class CreateDivisionTeamTable extends Migration
         Schema::create('division_team', function (Blueprint $table) {
             $table->integer('division_id');
             $table->integer('team_id');
-            $table->timestamps();
+            $table->integer('result')->nullable();
         });
     }
 

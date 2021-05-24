@@ -15,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [DivisionController::class, 'index']);
-Route::get('/divisionGeneration/{id}', [DivisionController::class, 'divisionGeneration']);
-Route::get('/divisionBGen', [DivisionController::class, 'divisionBGen']);
-Route::get('/playoffGen', [DivisionController::class, 'playoffGen']);
+Route::get('/division/{id}', [DivisionController::class, 'divisionGeneration']);
+Route::get('/playoff/{id}', [DivisionController::class, 'playoffGeneration']);

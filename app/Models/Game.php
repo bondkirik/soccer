@@ -11,5 +11,4 @@ class Game extends Model
 
     protected $guarded = [];
 
-
 }
