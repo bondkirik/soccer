@@ -12,9 +12,13 @@
 
 `cp .env.example .env`
 
-5. Create a database named `DB_DATABASE` in ".env" file
+4. Create a database named `DB_DATABASE` in ".env" file
 
 `create database soccer`
+
+5. Generate new application security token
+
+`php artisan key:generate`
 
 6. Run database migrations
 
@@ -23,3 +27,7 @@
 7. Seed the database
 
 `php artisan db:seed`
+
+8. start local serv
+
+`php artisan serv`
